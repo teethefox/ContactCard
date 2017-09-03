@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Card</title>
+    <link rel="stylesheet" type="text/css" href="contact.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div id="form">
+        <form action="/action_page.php">
+            First name:<br>
+            <input id="name" type="text" name="firstname"><br>
+            Last name:<br>
+            <input id="name2" type="text" name="lastname"><br><br>
+        </form>
+            Description:<br>
+            <textarea id="desc" type="text" name="email"></textarea><br><br>
+            
+      <input id= "submit" type="submit" value="Add User">
+            </div>
+        <div id="words"></div>
+    <script type="text/javascript">
+    $('form').submit(function(){
+        return false;
+    });
+        $(document).on("click", "#submit", function(){
+        var first= $("#name").val();
+    var last=$("#name2").val();
+    var desc=$("#desc").val();
+        $('#words').append("<div id='box1'><h1>" +first + last+"</h1><br><p>Click for Description</p></div>");
+        $("p").click(function(){
+         $(this).replaceWith("<p>"+desc+"</p>" );
+        
+        });
+        });
+    </script>
+</body>
+</html>
